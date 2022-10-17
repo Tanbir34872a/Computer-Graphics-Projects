@@ -1,18 +1,25 @@
 #include <windows.h>  // for MS Windows
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 
-void initGL() {
-	glClearColor(0.0f, 0.7f, 0.0f, 1.0f);
-}
-
 float x(int X){return float((float(X)-500)/500);}
 float y(int Y){return float((400-float(Y))/400);}
 float f(float Y){return float(Y/255);}
 
+void initGL() {
+	glClearColor(f(144), f(158), f(169), 0.0f);
+}
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
+
+	glBegin(GL_QUADS);
+	glColor3f(f(187), f(169), f(85));
+	glVertex2f(x(0), y(800));
+	glVertex2f(x(0), y(400));
+	glVertex2f(x(1000), y(400));
+	glVertex2f(x(1000), y(800));
+	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3f(f(211), f(193), f(157));
@@ -55,6 +62,8 @@ void display() {
 	glVertex2f(x(733), y(746));
 	glVertex2f(x(238), y(570));
 	glEnd();
+
+    /////////////////////////////
 
 	glBegin(GL_QUADS);
 	glColor3f(f(97), f(111), f(117));
@@ -127,15 +136,25 @@ void display() {
         glEnd();
 	}
 
-/*
-    glBegin(GL_QUADS);
-	glColor3f(0.68f, 0.85f, 0.90f);
-	glVertex2f(x(), y());
-	glVertex2f(x(), y());
-	glVertex2f(x(), y());
-	glVertex2f(x(), y());
-	glEnd();
+	for(int a = 0; a < 9; a++){
+        glBegin(GL_QUADS);
+        glColor3f(f(117), f(146), f(160));
+        glVertex2f(x(865 - a*3), y(140 + 60*a));
+        glVertex2f(x(880 - a*3), y(140 + 60*a));
+        glVertex2f(x(877 - a*3), y(175 + 60*a));
+        glVertex2f(x(863 - a*3), y(175 + 60*a));
+        glEnd();
+	}
 
+
+    glBegin(GL_QUADS);
+	glColor3f(f(182), f(151), f(94));
+	glVertex2f(x(600), y(800));
+	glVertex2f(x(340), y(800));
+	glVertex2f(x(0), y(660));
+	glVertex2f(x(0), y(580));
+	glEnd();
+/*
     glBegin(GL_QUADS);
 	glColor3f(0.68f, 0.85f, 0.90f);
 	glVertex2f(x(), y());
